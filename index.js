@@ -19,39 +19,83 @@ app.use('/', (req, res, next) => {
 app.use('/data', (req, res, next) => {
 
     res.status(200).send(
-        {
+      {
         "data": {
           "type": "invoices",
           "id": "1234",
           "attributes": {
             "invoice-number": "INV-001",
             "date": "2022-03-13",
-            "amount": 100.00,
-            "currency": "USD",
-            "status": "paid"
+            "currency": "SAR",
+            "status": "paid",
+          "from": "2022-03-13",
+          "to": "2022-03-19",
+          "grandtotal":"5000",
+          "lineamounts":"5010",
+          "withholdingamt":"10",
+
           },
           "relationships": {
             "customer": {
               "data": {
-                "type": "customers",
-                "id": "5678"
+                "id": "1",
+                "name": "John Doe",
+                "email": "johndoe@email.com",
+                "phone": "555-123-4567",
+                "address": "123 Main St",
+                "city": "Anytown",
+                "state": "CA",
+                "zip": "12345"
               }
             },
             "line-items": {
               "data": [
                 {
                   "type": "line-items",
-                  "id": "1"
+                  "id": "1",
+            "lineno":"1",
+            "product_id":"1",
+            "currency": "SAR",
+            "productname":"laptop",
+            "description" :"desc ",
+            "category" :"electronics",
+            "uom":"each",
+            "price":"1980",
+            "tax":"20",
+
                 },
                 {
+              "type": "line-items",
+             "id": "2",
+            "lineno":"2",
+            "product_id":"2",
+            "currency": "SAR",
+            "productname":"Mouse",
+            "description" :"desc ",
+            "category" :"electronics",
+            "uom":"each",
+            "price":"1980",
+            "tax":"20"
+
+                },{
                   "type": "line-items",
-                  "id": "2"
+                  "id": "3",
+            "lineno":"2",
+            "product_id":"3",
+            "currency": "SAR",
+            "productname":"Keyboard",
+            "description" :"desc ",
+            "category" :"electronics",
+            "uom":"each",
+            "price":"990",
+            "tax":"20"
                 }
               ]
             }
           }
         }
-        }
+
+      }
     );
 });
 
